@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const fs = require('fs');
+const keepAlive = require('./server.js');
 
 const client = new Discord.Client();
 
@@ -10,4 +11,5 @@ client.events = new Discord.Collection();
     require(`./handlers/${handler}`)(client, Discord);
 })
 
+keepAlive();
 client.login(process.env.bot_token);
